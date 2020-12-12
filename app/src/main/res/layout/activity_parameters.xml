@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Parameters"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:id="@+id/homeButton" />
+
+        <Button
+            android:id="@+id/validateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Validate" />
+
+        <Button
+            android:id="@+id/StartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select the number of questions:"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/spinner"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick the categories "/>
+
+    <CheckBox
+        android:id="@+id/cb_any"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Any Categories" />
+
+
+
+    <CheckBox
+        android:id="@+id/cb_sciences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sciences et technologies"/>
+
+    <CheckBox
+        android:id="@+id/cb_histoire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Histoire et Géorgaphie"/>
+
+    <CheckBox
+        android:id="@+id/cb_art"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Art et Littérature"/>
+
+
+    <CheckBox
+        android:id="@+id/cb_television"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Télévision et cinéma"/>
+
+    <CheckBox
+        android:id="@+id/cb_sport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sports et Divertissement"/>
+
+    <CheckBox
+        android:id="@+id/cb_cultureG"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Culture Générale"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select a difficulty" />
+
+    <RadioGroup
+        android:id="@+id/radiogroupdifficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/anyone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Any difficulty"/>
+
+
+        <RadioButton
+            android:id="@+id/easyone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="easy"/>
+
+        <RadioButton
+            android:id="@+id/mediumone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="medium"/>
+
+
+        <RadioButton
+            android:id="@+id/hardone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="hard"/>
+    </RadioGroup>
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
