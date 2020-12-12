@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private Button scores;
     private Button play;
     private Button rules;
+    private int a;
 
 
     @Override
