@@ -24,5 +24,6 @@ public final class FeedReaderContract {
         public static final String COLUMN_NAME_C6 = "C6";
         public static final String COLUMN_NAME_Cc6 = "Cc6";
 
+
     }
 }

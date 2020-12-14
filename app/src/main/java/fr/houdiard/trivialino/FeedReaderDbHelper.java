@@ -20,6 +20,7 @@ import static fr.houdiard.trivialino.FeedReaderContract.FeedEntry.COLUMN_NAME_Cc
 import static fr.houdiard.trivialino.FeedReaderContract.FeedEntry.COLUMN_NAME_Cc4;
 import static fr.houdiard.trivialino.FeedReaderContract.FeedEntry.COLUMN_NAME_Cc5;
 import static fr.houdiard.trivialino.FeedReaderContract.FeedEntry.COLUMN_NAME_Cc6;
+
 import static fr.houdiard.trivialino.FeedReaderContract.FeedEntry.COLUMN_NAME_SCORE;
 import static fr.houdiard.trivialino.FeedReaderContract.FeedEntry.TABLE_NAME;
 
@@ -84,6 +85,7 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_NAME_Cc5, cc5);
         values.put(COLUMN_NAME_C6, c6);
         values.put(COLUMN_NAME_Cc6, cc6);
+
         SQLiteDatabase db = this.getWritableDatabase();
         long e = db.insert(TABLE_NAME, null, values);
         db.close();
@@ -107,4 +109,91 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
         db.close();
         return result;
     }
+
+    public int nbPP () {
+        String query = "Select * FROM " +TABLE_NAME;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        int a = cursor.getCount();
+        return a;
+
+    }
+
+    public int nbQA() {
+        String query = "Select * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        int s = 0;
+        while (cursor.moveToNext()) {
+            for (int i = 1; i <= 6; i++) {
+                s += cursor.getInt(2 * i);
+            }
+        }
+
+        return s;
+
+
+    }
+
+    public int nbQC( int cat) {
+        String query = "Select * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        int s = 0;
+        while (cursor.moveToNext()) {
+            s+= cursor.getInt(2*cat);
+        }
+
+        return s;
+
+
+    }
+
+    public int nbQCC( int cat) {
+        String query = "Select * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        int s = 0;
+        while (cursor.moveToNext()) {
+            s+= cursor.getInt(2*cat+1);
+        }
+
+        return s;
+
+
+    }
+
+    public long scoreMoy () {
+        String query = "Select * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        double s = 0;
+        while (cursor.moveToNext()) {
+            s+= cursor.getInt(1);
+        }
+
+        double n = nbPP();
+
+        return Math.round(s/n);
+
+    }
+
+
+    public int gA() {
+        String query = "Select * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        int s = 0;
+        while (cursor.moveToNext()) {
+            for (int i = 1; i <= 6; i++) {
+                s += cursor.getInt(2 * i +1);
+            }
+        }
+
+        return s;
+
+
+    }
+
+
 }
