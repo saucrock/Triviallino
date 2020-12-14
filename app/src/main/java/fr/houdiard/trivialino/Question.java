@@ -228,16 +228,17 @@ public class Question extends AppCompatActivity {
 
                     questionS.add(question);
                     caa.add(r4.getReponse());
+                    bool.add(r4.getVerif());
                     reponses.add(caa);
                     caa = new ArrayList<String>();
-                    bool.add(r4.getVerif());
                     numQ++;
                     if (numQ != nbQ +1) {
+                        Log.i("Salut", "JFIZKDS");
                         getAQuestion();
                     }
                 }
 
-                if (numQ == nbQ) {
+                if (numQ == nbQ +1) {
                     results.setVisibility(View.VISIBLE);
                     b1.setVisibility(View.INVISIBLE);
                     b2.setVisibility(View.INVISIBLE);

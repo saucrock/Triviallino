@@ -25,6 +25,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static org.apache.commons.lang3.StringEscapeUtils.unescapeHtml4;
+
 
 public class AsyncQuestionJSON extends AsyncTask<String, Void, JSONObject> {
 
@@ -103,7 +105,7 @@ public class AsyncQuestionJSON extends AsyncTask<String, Void, JSONObject> {
                 ra4.setReponse(mr3);
 
 
-                chargeQuestion(qu, getCate(categ));
+                chargeQuestion(unescapeHtml4(qu), getCate(categ));
 
 
 
@@ -142,6 +144,7 @@ public class AsyncQuestionJSON extends AsyncTask<String, Void, JSONObject> {
     }
 
     private void chargeQuestion(String a, int b) {
+        Log.i("jfiedk","FHIODJKSL");
         TextView tvQ = (TextView) myActivity.findViewById(R.id.question);
         Button b1 = (Button) myActivity.findViewById(R.id.b1);
         Button b2 = (Button) myActivity.findViewById(R.id.b2);
@@ -222,10 +225,11 @@ public class AsyncQuestionJSON extends AsyncTask<String, Void, JSONObject> {
         }
 
         tvQ.setText(a);
-        b1.setText(Question.r1.getReponse());
-        b2.setText(Question.r2.getReponse());
-        b3.setText(Question.r3.getReponse());
-        b4.setText(Question.r4.getReponse());
+        b1.setText(unescapeHtml4(Question.r1.getReponse()));
+        b2.setText(unescapeHtml4(Question.r2.getReponse()));
+        b3.setText(unescapeHtml4(Question.r3.getReponse()));
+        b4.setText(unescapeHtml4(Question.r4.getReponse()));
+
 
 
 

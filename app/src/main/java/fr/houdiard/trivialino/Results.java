@@ -14,6 +14,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import static fr.houdiard.trivialino.FeedReaderDbHelper.DATABASE_NAME;
+
 public class Results extends AppCompatActivity {
 
     private ArrayList<String> questions;
@@ -95,11 +97,19 @@ public class Results extends AppCompatActivity {
     }
 
     private Boolean fillDb() {
+        getApplicationContext().deleteDatabase(DATABASE_NAME);
         FeedReaderDbHelper dbHelper = new FeedReaderDbHelper(getApplicationContext());
-        int s = (score/verified.size())*100;
+
+        double s = compte();
+        double e = verified.size();
+        double a = (s/e)*100;
+
+        int sc = Math.round((float) a);
+
+        Log.i("Score", sc+"points");
         ArrayList<Integer> nbqcTab = new ArrayList<Integer>();
         ArrayList<Integer> nbqccTab = new ArrayList<Integer>();
-        for (int i = 0; i <= 6; i++) {
+        for (int i = 1; i <= 6; i++) {
             int nbqc = 0;
             int nbqcc = 0;
             for (int j = 0; j < categor.size(); j++) {
@@ -114,7 +124,7 @@ public class Results extends AppCompatActivity {
             nbqccTab.add(nbqcc);
         }
 
-        dbHelper.addParty(s, nbqcTab.get(0),nbqccTab.get(0) , nbqcTab.get(1), nbqccTab.get(1), nbqcTab.get(2), nbqccTab.get(2), nbqcTab.get(3), nbqccTab.get(3), nbqcTab.get(4), nbqccTab.get(4), nbqcTab.get(5), nbqccTab.get(0));
+        dbHelper.addParty(sc, nbqcTab.get(0),nbqccTab.get(0) , nbqcTab.get(1), nbqccTab.get(1), nbqcTab.get(2), nbqccTab.get(2), nbqcTab.get(3), nbqccTab.get(3), nbqcTab.get(4), nbqccTab.get(4), nbqcTab.get(5), nbqccTab.get(0));
         return true;
 
 
