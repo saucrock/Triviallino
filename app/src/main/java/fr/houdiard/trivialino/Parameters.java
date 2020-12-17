@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -102,16 +101,14 @@ public class Parameters extends AppCompatActivity {
                     categorieSelected = getIds();
 
 
-                    Log.v("Nb de question:", nbQuestion + "");
+
 
                     for (int i=0; i < categorieSelected.size(); i++) {
-                        Log.i("Categories:", categorieSelected.get(i).get(0));
+
                         for (int j=1; j<categorieSelected.get(i).size(); j++) {
-                            Log.i("Id Catégorie:", categorieSelected.get(i).get(j));
                         }
                     }
 
-                    Log.i("difficulty", difficulty );
                     validate.setEnabled(false);
                     start.setEnabled(true);
                 } else {
@@ -141,7 +138,6 @@ public class Parameters extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 nbQuestion = (int) spin.getSelectedItem();
-                Log.v("item", nbQuestion + "");
             }
 
             @Override
@@ -175,7 +171,6 @@ public class Parameters extends AppCompatActivity {
     }
 
     private void toutcoche(boolean isChecked) {
-        Log.i("HH", "Je coche/décoche tout");
         this.cbCulG.setChecked(isChecked);
         this.cbScience.setChecked(isChecked);
         this.cbHistoire.setChecked(isChecked);

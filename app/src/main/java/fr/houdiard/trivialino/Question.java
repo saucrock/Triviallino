@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -51,7 +50,6 @@ public class Question extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-        Log.i("Camille", "Camille");
 
         b1 = (Button) findViewById(R.id.b1);
         b2 = (Button) findViewById(R.id.b2);
@@ -61,9 +59,7 @@ public class Question extends AppCompatActivity {
         results = (Button) findViewById(R.id.result);
         numQues = (TextView) findViewById(R.id.numeroquestion);
         imacate = (ImageView) findViewById(R.id.categimage);
-        Log.i("Camille", "Camille2");
         home = (Button) findViewById(R.id.homeb);
-        Log.i("Camille", "Camille3");
         categs = new ArrayList<Integer>();
 
 
@@ -75,10 +71,7 @@ public class Question extends AppCompatActivity {
 
 
 
-        Log.i("Question", nbQ + "");
-        Log.i("Question", diff);
-        Log.i("Question", cate.get(0).get(0));
-        Log.i("Question", "hello");
+
 
 
         getAQuestion();
@@ -97,11 +90,7 @@ public class Question extends AppCompatActivity {
         results.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*for (int i = 0; i<questionS.size(); i++) {
-                    Log.i("Question " + (i+1) + ": ", questionS.get(i));
-                    Log.i("Answered : ", reponses.get(i).get(1));
-                    Log.i("Correct Answer : ", reponses.get(i).get(0));
-                } */
+
 
                 Intent seeResults = new Intent(getApplicationContext(), Results.class);
                 seeResults.putExtra("lesquestions", questionS);
@@ -116,9 +105,7 @@ public class Question extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("HH", r1.getReponse());
-                Log.i("HH", r1.getVerif().toString());
-                Log.i("HH", question);
+
                 if (numQ <= nbQ) {
 
                     questionS.add(question);
@@ -153,9 +140,7 @@ public class Question extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("HH", r2.getReponse());
-                Log.i("HH", r2.getVerif().toString());
-                Log.i("HH", question);
+
                 if (numQ <= nbQ) {
 
                     questionS.add(question);
@@ -187,9 +172,7 @@ public class Question extends AppCompatActivity {
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("HH", r3.getReponse());
-                Log.i("HH", r3.getVerif().toString());
-                Log.i("HH", question);
+
                 if (numQ <= nbQ) {
 
                     questionS.add(question);
@@ -221,9 +204,7 @@ public class Question extends AppCompatActivity {
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("HH", r4.getReponse());
-                Log.i("HH", r4.getVerif().toString());
-                Log.i("HH", question);
+
                 if (numQ <= nbQ) {
 
                     questionS.add(question);
@@ -233,7 +214,6 @@ public class Question extends AppCompatActivity {
                     caa = new ArrayList<String>();
                     numQ++;
                     if (numQ != nbQ +1) {
-                        Log.i("Salut", "JFIZKDS");
                         getAQuestion();
                     }
                 }
@@ -273,7 +253,6 @@ public class Question extends AppCompatActivity {
         Random random1 = new Random();
         int cateselected = random1.nextInt(nbCate);
         QuestionCategory = cate.get(cateselected).get(0);
-        Log.i("HH", "La categ selected est " + QuestionCategory);
         return cateselected;
 
     }
@@ -285,7 +264,6 @@ public class Question extends AppCompatActivity {
         int pickedId = genererInt(1,nbIds);
 
         String id = cate.get(cateSelected).get(pickedId);
-        Log.i("HH", "Avec l'ID " + id);
         return id;
     }
 
@@ -294,28 +272,21 @@ public class Question extends AppCompatActivity {
         String ajout2 = "";
 
         if (cate.get(0).get(0).equals("Any")) {
-            Log.i("HH", "La catégorie est any");
             if (diff.equals("Any difficulty")) {
-                Log.i("HH", "La difficulté est aussi any");
 
             } else {
-                Log.i("HH", "La difficulté n'est pas any");
                 ajout2 = "difficulty=" + diff + "&";
 
             }
         } else {
-            Log.i("HH", "La catégorie nest pas any");
             ajout1 = "category=" + pickAnId() + "&";
             if (diff.equals("Any difficulty")) {
-                Log.i("HH", "La difficulté est aussi any");
 
             } else {
-                Log.i("HH", "La difficulté n'est pas any");
                 ajout2 = "difficulty=" + diff + "&";
             }
         }
         String url = "https://opentdb.com/api.php?amount=1&" + ajout1 + ajout2 + "type=multiple" ;
-        Log.i("HH", url);
         return url;
 
     }

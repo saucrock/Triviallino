@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -49,13 +49,7 @@ public class Results extends AppCompatActivity {
 
 
 
-        for (int i = 0; i<questions.size(); i++) {
-            Log.i("Question " + (i+1) + ": ", questions.get(i));
-            Log.i("Answered : ", reponses.get(i).get(1));
-            Log.i("Correct Answer : ", reponses.get(i).get(0));
-            Log.i("Is Correct ?  ", verified.get(i).toString());
-            Log.i("Categorie:  ", categor.get(i).toString());
-        }
+
 
 
         homiB.setOnClickListener(new View.OnClickListener() {
@@ -107,8 +101,7 @@ public class Results extends AppCompatActivity {
 
         int sc = Math.round((float) a);
 
-        Log.i("Score", a+"points");
-        Log.i("Score", sc+"points");
+
         ArrayList<Integer> nbqcTab = new ArrayList<Integer>();
         ArrayList<Integer> nbqccTab = new ArrayList<Integer>();
         for (int i = 1; i <= 6; i++) {

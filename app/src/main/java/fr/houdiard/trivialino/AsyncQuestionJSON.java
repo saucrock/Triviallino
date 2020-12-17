@@ -81,7 +81,6 @@ public class AsyncQuestionJSON extends AsyncTask<String, Void, JSONObject> {
     protected void onPostExecute(JSONObject json) {
 
         if (json != null) {
-            Log.i("HH", "J'ai une Question !");
             try {
                 JSONArray array = json.getJSONArray("results");
                 JSONObject objet = array.getJSONObject(0);
@@ -112,13 +111,7 @@ public class AsyncQuestionJSON extends AsyncTask<String, Void, JSONObject> {
 
 
 
-                Log.i("HH", "Question inésrée !");
-                Log.i("HH", mr1);
-                Log.i("HH", mr2);
-                Log.i("HH", mr3);
-                Log.i("HH", ca);
-                Log.i("HH", categ);
-                Log.i("je suis", ""+getCate(categ));
+
 
 
 
@@ -144,7 +137,6 @@ public class AsyncQuestionJSON extends AsyncTask<String, Void, JSONObject> {
     }
 
     private void chargeQuestion(String a, int b) {
-        Log.i("jfiedk","FHIODJKSL");
         TextView tvQ = (TextView) myActivity.findViewById(R.id.question);
         Button b1 = (Button) myActivity.findViewById(R.id.b1);
         Button b2 = (Button) myActivity.findViewById(R.id.b2);
